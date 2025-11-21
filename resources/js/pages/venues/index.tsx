@@ -71,7 +71,11 @@ export default function VenuesIndex({ venues, createVenueUrl }: VenuesIndexProps
                                         key={venue.id}
                                         className="border-b border-sidebar-border/70 dark:border-sidebar-border last:border-0 hover:bg-accent/50"
                                     >
-                                        <td className="px-4 py-3 text-sm">{venue.name}</td>
+                                        <td className="px-4 py-3 text-sm">
+                                            <Link href={`/venues/${venue.id}`} className="font-medium hover:underline">
+                                                {venue.name}
+                                            </Link>
+                                        </td>
                                         <td className="px-4 py-3 text-sm">{venue.city}</td>
                                         <td className="px-4 py-3 text-sm">{venue.state}</td>
                                         <td className="px-4 py-3 text-sm">{venue.capacity}</td>

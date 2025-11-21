@@ -43,6 +43,14 @@ class VenueController extends Controller
         return back()->with('success', 'Venue created successfully.');
     }
 
+    public function show(Venue $venue)
+    {
+        $venue->load('events');
+        return Inertia::render('venues/show', [
+            'venue' => $venue,
+        ]);
+    }
+
     public function edit(Venue $venue)
     {
         return Inertia::render('venues/edit', [

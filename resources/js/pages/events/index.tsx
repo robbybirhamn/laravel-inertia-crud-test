@@ -135,8 +135,16 @@ export default function EventsIndex({ events, createEventUrl }: EventsIndexProps
                                         key={event.id}
                                         className="border-b border-sidebar-border/70 dark:border-sidebar-border last:border-0 hover:bg-accent/50"
                                     >
-                                        <td className="px-4 py-3 text-sm">{event.title}</td>
-                                        <td className="px-4 py-3 text-sm">{event.venue.name}</td>
+                                        <td className="px-4 py-3 text-sm">
+                                            <Link href={`/events/${event.id}`} className="font-medium hover:underline">
+                                                {event.title}
+                                            </Link>
+                                        </td>
+                                        <td className="px-4 py-3 text-sm">
+                                            <Link href={`/venues/${event.venue.id}`} className="hover:underline">
+                                                {event.venue.name}
+                                            </Link>
+                                        </td>
                                         <td className="px-4 py-3 text-sm">{event.start_datetime}</td>
                                         <td className="px-4 py-3 text-sm">{event.end_datetime}</td>
                                         <td className="px-4 py-3 text-sm">

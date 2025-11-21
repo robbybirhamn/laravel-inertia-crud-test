@@ -62,6 +62,14 @@ class EventController extends Controller
         return back()->with('success', 'Event created successfully.');
     }
 
+    public function show(Event $event)
+    {
+        $event->load(['venue', 'user']);
+        return Inertia::render('events/show', [
+            'event' => $event,
+        ]);
+    }
+
     public function edit(Event $event)
     {
         return Inertia::render('events/edit', [
